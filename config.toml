@@ -1,0 +1,32 @@
+[agent]
+name = "Туслагч"
+version = "0.1.0"
+
+[models]
+# Монгол контент, нийтлэл → Claude API
+claude  = "claude-sonnet-4-5"
+# Локал мэдээ/пост үүсгэгч → Ollama
+news    = "qwen2.5:7b"
+# Код, техник → Ollama (local, үнэгүй)
+ollama  = "deepseek-coder:6.7b"
+
+[ollama]
+host = "http://localhost:11434"
+
+[language]
+default = "mn"   # "mn" эсвэл "en"
+
+[paths]
+db      = "data/memory.db"
+outputs = "data/outputs"
+
+[rag]
+enabled       = true
+knowledge_dir = "knowledge"
+index_db      = "data/rag.db"
+embed_model   = "nomic-embed-text"
+chunk_size    = 500
+chunk_overlap = 80
+top_k         = 4
+min_score     = 0.32
+auto_inject   = true
